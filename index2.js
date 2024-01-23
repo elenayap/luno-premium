@@ -11,21 +11,18 @@ async function lunoBinance() {
   const lunoMYR = await lunoPricesMYR(userInput) //the parameter name must same as the variable name in this function 
   const exchangeRate = await rategetconverter()
   const convertRate= await LunoUsd(lunoMYR, exchangeRate)
-//   const convertRate= await convertLunoToUsd()
   const binance = await binancePricesUSD(userInput)
-//   const priceDiff= await priceDifferent()
   const priceDiff= await priceDifferent(convertRate,binance)
-  //const percentangeDiff = await percentageDifferent()
  const percentangeDiff = await percentageDifferent(convertRate,binance)
-  console.log("BTCMYR price on Luno:", "      ","MYR", lunoMYR)
-  console.log("USDMYR:", "                    ", exchangeRate)
-  console.log("BTCUSD price on Luno:", "      ","USD", convertRate)
-  console.log("BTCBUSD price on Binance:","  ","USD", binance)
-  console.log("Price difference:", "          ","USD", priceDiff)
-  console.log("Luno premium:", "              ", percentangeDiff,"%\n")
+  console.log("MYR price on Luno:".padEnd(30), "MYR", lunoMYR)
+  console.log("USDMYR:".padEnd(30), exchangeRate)
+  console.log("USD price on Luno:".padEnd(30), "USD", convertRate)
+  console.log("USD price on Binance:".padEnd(30), "USD", binance)
+  console.log("Price difference:".padEnd(30), "USD", priceDiff)
+  console.log("Luno premium:".padEnd(30), percentangeDiff,"%\n")
 
 }
-
+//checkCryptoPrice()  //call out function when want to get the things inside the function
 
 async function loop() {
     while (true) {
